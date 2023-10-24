@@ -1,0 +1,12 @@
+import requests
+
+def get_random_joke():
+    response = requests.get("https://official-joke-api.appspot.com/random_joke")
+    joke = response.json()
+    return joke["setup"], joke["punchline"]
+
+if __name__ == "__main__":
+    setup, punchline = get_random_joke()
+    print("Here's a random joke for you:")
+    print(f"Q: {setup}")
+    print(f"A: {punchline}")
